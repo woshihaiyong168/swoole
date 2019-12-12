@@ -1,0 +1,40 @@
+<html>
+
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>websocket</title>
+</head>
+<h1>websocket测试</h1>
+<body>
+<script>
+ var wsUrl = "ws://182.61.1.27:9505";
+ var websocket = new WebSocket(wsUrl);
+ 
+
+  //实例对象onopen属性
+  websocket.onopen = function(evt) {
+   websocket.send('hello swoole');    
+   console.log("connection-success");
+  }
+
+ //实例化 onmessage
+  websocket.onmessage = function(evt) {
+   console.log("data:"+ evt.data);
+ }
+
+ //关闭事件
+ websocket.onclose = function(evt) {
+   console.log('close');
+ }
+ //错误显示
+  websocket.onerror = function(evt,e) {
+   console.log('error'+ e.data);
+ }
+
+</script>
+</body>
+
+</html>
+
+
+
